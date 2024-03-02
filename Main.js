@@ -39,7 +39,7 @@ const main = () => {
 
 //     while (true) {
 //         let iframes = document.getElementsByTagName("iframe");
-//         for (let FRAME of iframes) {
+//         for (let FRAMEa of iframes) {
 //             FRAME.remove();
 //         }
 //         await timer(1);
