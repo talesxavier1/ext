@@ -1,26 +1,37 @@
 
 const main = async () => {
     let gitHubPageGet = await getScript();
-    debugger;
-    eval(script);
+    let rawArray = gitHubPageGet?.payload?.blob?.rawLines;
+    if (Array.isArray(rawArray) && rawArray.length > 0) {
+        let raw = rawArray.join("\n");
+        debugger;
+        eval(script);
+    }
 }
 
 const getScript = async () => {
-    let _response = "(()=>{})()";
+    let _response = {};
     await $.ajax({
-        url: "https://raw.githubusercontent.com/talesxavier1/ext/dev/Main.js",
+        url: "https://lw001tallesandrade.ddns.net/corsProxy/",
         type: "GET",
         headers: {
-            "Accept": "*/*",
+            "URL_PROXY": "https://github.com/talesxavier1/ext/blob/dev/Main.js",
         },
         success: function (response) {
-            _response = response;
+            try {
+                _response = JSON.parse(response);
+            } catch (err) { }
         },
         error: function (xhr, status, error) {
+            debugger;
         }
     });
     return _response
 }
 
-main();
+
+window.addEventListener("load", async () => {
+    await main();
+});
+
 
