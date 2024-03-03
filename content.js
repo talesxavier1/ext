@@ -4,8 +4,7 @@ const main = async () => {
     let rawArray = gitHubPageGet?.payload?.blob?.rawLines;
     if (Array.isArray(rawArray) && rawArray.length > 0) {
         let raw = rawArray.join("\n");
-        debugger;
-        eval(script);
+        eval(raw);
     }
 }
 
