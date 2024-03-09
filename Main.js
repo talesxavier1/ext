@@ -1,3 +1,25 @@
+
+
+class Main {
+
+    _observe = (mutationsList) => {
+        debugger;
+    }
+
+    constructor() {
+        new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
+    }
+
+}
+
+new Main();
+
+
+
+
+
+
+/*
 const main_componentsDOM = () => {
     let components = [
         {
@@ -59,8 +81,7 @@ const main_componentsDOM = () => {
             "desc": "Iframes",
             "key": "xpath",
             "value": "//*[@id='page-top']/iframe"
-        },
-
+        }
     ];
 
     for (let COMPONENT of components) {
@@ -131,3 +152,4 @@ function _timer(seconds) {
 
 main_componentsDOM();
 main_componentsObserve();
+*/
