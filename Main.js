@@ -81,6 +81,7 @@ class Main {
                     Partialresult.push(ADDED_NODES);
                 }
             }
+            return Partialresult;
         })();
 
         this._clearOnLoadComponents();
