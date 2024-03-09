@@ -110,9 +110,10 @@ class Main {
     constructor() {
         this._clearOnLoadComponents();
         new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
-        this._originalSetTimeout = window.setTimeout;
+
+        const originalSetTimeout = window.setTimeout;
         window.setTimeout = (callback, delay, ...args) => {
-            const id = this._originalSetTimeout(callback, delay, ...args);
+            const id = originalSetTimeout(callback, delay, ...args);
             debugger;
             return id;
         }
