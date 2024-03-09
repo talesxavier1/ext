@@ -75,7 +75,7 @@ const main_componentsObserve = () => {
             }
         }
 
-        debugger;
+        // debugger;
     }).observe(document.getElementById("page-top"), { childList: true });
 }
 
