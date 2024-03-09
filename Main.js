@@ -50,6 +50,11 @@ const main_componentsDOM = () => {
             "key": "xpath",
             "value": "//div[contains(@class, 'orp-player-wrapper')]"
         },
+        {
+            "desc": "Iframes",
+            "key": "xpath",
+            "value": "//iframe"
+        },
     ];
 
     for (let COMPONENT of components) {
@@ -66,12 +71,11 @@ const main_componentsObserve = () => {
                 if (ADDED_NODES.localName == "iframe") {
                     ADDED_NODES.remove();
                 }
-                //debugger
             }
         }
 
         debugger;
-    }).observe(document.getElementById("page-top"), { 'characterData': true/**, '': true, 'childList': true*/ });
+    }).observe(document.getElementsByTagName("body"), { 'childList': true });
 }
 
 const _getFirstElements = (By, Value) => {
