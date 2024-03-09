@@ -85,6 +85,7 @@ class Main {
         })();
 
         for (let NODE of nodes) {
+            debugger
             if (NODE.localName == "iframe") {
                 this._tryDeleteNode(NODE);
             } else if (NODE.className == "orp-player-wrapper") {
