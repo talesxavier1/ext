@@ -66,7 +66,6 @@ const main_componentsDOM = () => {
 
 const main_componentsObserve = () => {
     new MutationObserver((mutationsList, observer) => {
-
         for (let MUTATION of mutationsList) {
             for (let ADDED_NODES of MUTATION.addedNodes) {
                 if (ADDED_NODES.localName == "iframe") {
@@ -74,9 +73,17 @@ const main_componentsObserve = () => {
                 }
             }
         }
-
-        // debugger;
     }).observe(document.getElementById("page-top"), { childList: true });
+
+    new MutationObserver((mutationsList, observer) => {
+        for (let MUTATION of mutationsList) {
+            for (let ADDED_NODES of MUTATION.addedNodes) {
+                if (ADDED_NODES.localName == "iframe") {
+                    ADDED_NODES.remove();
+                }
+            }
+        }
+    }).observe(_xpath(), { childList: true, subtree: true });
 }
 
 const _getFirstElements = (By, Value) => {
