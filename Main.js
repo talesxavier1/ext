@@ -1,17 +1,17 @@
 const main = () => {
     let components = [
         {
-            "desc": " AD Header",
+            "desc": " AD",
             "key": "id",
             "value": "jsonformatter_leaderboard_atf"
         },
         {
-            "desc": " AD meio",
+            "desc": " AD",
             "key": "id",
             "value": "jsonformatter_medrec_middle"
         },
         {
-            "desc": "AD Baixo",
+            "desc": "AD",
             "key": "xpath",
             "value": "//*[@id='page-top']/section[@class = 'ads']"
         },
@@ -24,6 +24,16 @@ const main = () => {
             "desc": "Conteudo faq",
             "key": "id",
             "value": "faq"
+        },
+        {
+            "desc": " AD",
+            "key": "id",
+            "value": "jsonformatter_incontent_3"
+        },
+        {
+            "desc": " AD",
+            "key": "id",
+            "value": "jsonformatter_Leaderboard_btf"
         },
     ]
 
