@@ -104,18 +104,14 @@ class Main {
         console.log("_observe");
     }
 
-    _originalSetTimeout;
-    // _bypassSetTimeout 
-
     constructor() {
         this._clearOnLoadComponents();
         new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
 
         const originalSetTimeout = window.setTimeout;
         window.setTimeout = (callback, delay, ...args) => {
-            const id = originalSetTimeout(callback, delay, ...args);
-            debugger;
-            return id;
+            if (callback.toString().includes("Xr.adjust")) { return null }
+            return originalSetTimeout(callback, delay, ...args);
         }
     }
 }
