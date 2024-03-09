@@ -1,10 +1,17 @@
 const main = () => {
     debugger;
-    let components = [{
-        "desc": " Header",
-        "key": "id",
-        "value": "jsonformatter_leaderboard_atf"
-    }]
+    let components = [
+        {
+            "desc": " AD Header",
+            "key": "id",
+            "value": "jsonformatter_leaderboard_atf"
+        },
+        {
+            "desc": " AD meio",
+            "key": "id",
+            "value": "jsonformatter_medrec_middle"
+        },
+    ]
 
     for (let COMPONENT of components) {
         let findComponent = getFirstElement(COMPONENT.key, COMPONENT.value);
