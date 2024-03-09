@@ -83,22 +83,14 @@ class Main {
             }
             return Partialresult;
         })();
-        debugger;
 
-
-
-
-        // debugger;
-        // let nodes = mutationsList.map(VALUE => VALUE.addedNodes);
-        // nodes = nodes.flat();
-        // console.log(JSON.stringify(nodes));
-        // for (let NODE of nodes) {
-        //     if (NODE.localName == "iframe") {
-        //         this._tryDeleteNode(NODE);
-        //     } else if (NODE.className == "orp-player-wrapper") {
-        //         this._tryDeleteNode(NODE);
-        //     }
-        // }
+        for (let NODE of nodes) {
+            if (NODE.localName == "iframe") {
+                this._tryDeleteNode(NODE);
+            } else if (NODE.className == "orp-player-wrapper") {
+                this._tryDeleteNode(NODE);
+            }
+        }
     }
 
     constructor() {
