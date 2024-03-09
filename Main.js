@@ -85,12 +85,15 @@ class Main {
         })();
 
         for (let NODE of nodes) {
-            debugger
-            if (NODE.localName == "iframe") {
-                this._tryDeleteNode(NODE);
-            } else if (NODE.className == "orp-player-wrapper") {
+            let removeNode =
+                (NODE.localName == "iframe") ||
+                (NODE.className == "orp-player-wrapper") ||
+                (NODE.id == "fs-sticky-footer");
+
+            if (removeNode) {
                 this._tryDeleteNode(NODE);
             }
+
         }
     }
 
