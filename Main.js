@@ -76,7 +76,7 @@ const main_componentsObserve = () => {
         }
 
         debugger;
-    }).observe(document.getElementsByTagName("body"), { 'childList': true });
+    }).observe(document.getElementsByTagName("body"), { childList: true });
 }
 
 const _getFirstElements = (By, Value) => {
