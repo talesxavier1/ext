@@ -74,6 +74,15 @@ class Main {
     }
 
     _observe = (mutationRecord) => {
+        let nodes = (() => {
+            let Partialresult = [];
+            for (let MUTATION of mutationsList) {
+                for (let ADDED_NODES of MUTATION.addedNodes) {
+                    Partialresult.push(ADDED_NODES);
+                }
+            }
+        })();
+
         this._clearOnLoadComponents();
         console.log("_observe");
     }
