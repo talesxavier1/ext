@@ -74,7 +74,7 @@ class Main {
     _tryDeleteNode = (node) => {
         try {
             node.remove();
-        } catch (err) { console.log("err") }
+        } catch (err) { }
     }
 
     _observe = (mutationsList) => {
@@ -86,17 +86,7 @@ class Main {
                 }
             }
             return Partialresult;
-        });
-
-
-        // ().filter(VALUE => {
-        //     if (VALUE.id == "jsonformatter_sticky_footer-stylesheet") {
-        //         this._tryDeleteNode(VALUE);
-        //         console.log(window.Xr?.adjust)
-        //         return false;
-        //     }
-        //     return true;
-        // });
+        })();
 
         if (nodes.length == 0) { return }
 
