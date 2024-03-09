@@ -45,6 +45,11 @@ const main = () => {
             "key": "id",
             "value": "esg_atica"
         },
+        {
+            "desc": " AD",
+            "key": "xpath",
+            "value": "//div[contains(@class, 'orp-player-wrapper')]"
+        },
 
 
         //
