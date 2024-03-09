@@ -1,4 +1,4 @@
-const main = () => {
+const main_componentsDOM = () => {
     let components = [
         {
             "desc": " AD",
@@ -53,17 +53,20 @@ const main = () => {
 
 
         //
-    ]
+    ];
 
     for (let COMPONENT of components) {
-        let findComponent = getFirstElements(COMPONENT.key, COMPONENT.value);
+        let findComponent = _getFirstElements(COMPONENT.key, COMPONENT.value);
         findComponent.forEach(VALUE => VALUE.remove());
-        // debugger;
     }
+}
+
+
+const main_componentsObserve = () => {
 
 }
 
-const getFirstElements = (By, Value) => {
+const _getFirstElements = (By, Value) => {
     if (["id", "name", "className"].includes(By)) {
         let result;
         if (By == "id") {
@@ -96,11 +99,15 @@ const _xpath = function (xpathToExecute) {
     return result;
 }
 
-window.addEventListener("load", () => {
-    main();
-});
+function _timer(seconds) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(`Timer de ${seconds} segundos concluído.`);
+        }, seconds * 1000);
+    });
+}
 
-main();
+main_componentsDOM();
 
 
 
@@ -148,13 +155,7 @@ main();
 //     }
 // });
 
-// function timer(seconds) {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             resolve(`Timer de ${seconds} segundos concluído.`);
-//         }, seconds * 1000);
-//     });
-// }
+
 
 
 
