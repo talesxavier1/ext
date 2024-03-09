@@ -17,7 +17,8 @@ class Main {
     id|headerDiv;
     id|jsonformatter_sticky_footer-stylesheet;
     xpath|//html/head/script[contains(@src, 'pubfig.engine.js')];
-    xpath|//html/head/script[contains(@src, 'pubfig.min.js')]
+    xpath|//html/head/script[contains(@src, 'pubfig.min.js')];
+    xpath|//html/head/script[contains(@src, 'a.pub.network')];
     `;
 
     _clearOnLoadComponents = () => {
