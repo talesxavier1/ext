@@ -60,7 +60,7 @@ const main_componentsDOM = () => {
 
     for (let COMPONENT of components) {
         let findComponent = _getFirstElements(COMPONENT.key, COMPONENT.value);
-        findComponent.forEach(VALUE => VALUE.remove());
+        findComponent.forEach(VALUE => VALUE ? VALUE.remove() : "");
     }
 }
 
