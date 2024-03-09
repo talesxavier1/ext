@@ -16,6 +16,7 @@ class Main {
     xpath|//div[contains(@class, 'orp-player-wrapper')];
     xpath|//*[@id='page-top']/iframe;
     tagName|iframe;
+    id|headerDiv;
     `;
 
     _clearOnLoadComponents = () => {
