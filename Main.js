@@ -72,9 +72,14 @@ class Main {
         } catch (err) { console.log("err") }
     }
 
+    _observe = (mutationRecord) => {
+        this._clearOnLoadComponents();
+        console.log("_observe");
+    }
+
     constructor() {
         this._clearOnLoadComponents();
-        new MutationObserver(() => { this._clearOnLoadComponents(); }).observe(document.documentElement, { childList: true, subtree: true });
+        new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
     }
 }
 

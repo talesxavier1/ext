@@ -1,5 +1,5 @@
 {
-  "name": "script injection",
+  "name": "jsonformatter no AD",
   "version": "0",
   "manifest_version": 3,
   "content_scripts": [
@@ -14,18 +14,5 @@
       "run_at": "document_start",
       "world": "MAIN"
     }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "content.js"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
-    }
-  ],
-  "content_security_policy": {
-    "extension_pages": "default-src 'self' 'wasm-unsafe-eval';"
-  }
+  ]
 }
