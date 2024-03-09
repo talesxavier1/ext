@@ -74,6 +74,14 @@ class Main {
     }
 
     _observe = (mutationsList) => {
+        for (let MUTATION of mutationsList) {
+            for (let ADDED_NODES of MUTATION.addedNodes) {
+                debugger;
+            }
+        }
+
+
+
         debugger;
         let nodes = mutationsList.map(VALUE => VALUE.addedNodes);
         nodes = nodes.flat();
