@@ -107,5 +107,10 @@ const _xpath = function (xpathToExecute) {
 //     });
 // }
 
+// window.addEventListener("load", async () => {
+//     await 
+// });
 
-main();
+document.addEventListener("DOMContentLoaded", async (event) => {
+    await main();
+});

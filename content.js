@@ -1,5 +1,6 @@
 
 const main = async () => {
+    debugger;
     let gitHubPageGet = await getScript();
     let rawArray = gitHubPageGet?.payload?.blob?.rawLines;
     if (Array.isArray(rawArray) && rawArray.length > 0) {
@@ -27,10 +28,8 @@ const getScript = async () => {
     });
     return _response
 }
+main();
 
 
-window.addEventListener("load", async () => {
-    await main();
-});
 
 
