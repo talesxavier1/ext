@@ -47,6 +47,11 @@ const main_componentsDOM = () => {
         },
         {
             "desc": " AD",
+            "key": "id",
+            "value": "fs-sticky-footer"
+        },
+        {
+            "desc": " AD",
             "key": "xpath",
             "value": "//div[contains(@class, 'orp-player-wrapper')]"
         },
