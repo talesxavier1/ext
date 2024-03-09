@@ -70,13 +70,13 @@ const main_componentsObserve = () => {
         for (let MUTATION of mutationsList) {
             for (let ADDED_NODES of MUTATION.addedNodes) {
                 if (ADDED_NODES.localName == "iframe") {
-                    //ADDED_NODES.remove();
+                    ADDED_NODES.remove();
                 }
             }
         }
 
         debugger;
-    }).observe(document.getElementsByTagName("body"), { childList: true });
+    }).observe(document.getElementById("page-top"), { childList: true });
 }
 
 const _getFirstElements = (By, Value) => {
