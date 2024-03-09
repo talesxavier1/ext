@@ -111,6 +111,8 @@ const _xpath = function (xpathToExecute) {
 //     await 
 // });
 
-document.addEventListener("DOMContentLoaded", async (event) => {
-    await main();
-});
+// document.addEventListener("DOMContentLoaded", async (event) => {
+//     await main();
+// });
+
+main();
