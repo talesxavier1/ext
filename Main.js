@@ -74,25 +74,30 @@ class Main {
     }
 
     _observe = (mutationsList) => {
-        for (let MUTATION of mutationsList) {
-            for (let ADDED_NODES of MUTATION.addedNodes) {
-                debugger;
+        let nodes = (() => {
+            let Partialresult = [];
+            for (let MUTATION of mutationsList) {
+                for (let ADDED_NODES of MUTATION.addedNodes) {
+                    Partialresult.push(ADDED_NODES);
+                }
             }
-        }
-
-
-
+        })();
         debugger;
-        let nodes = mutationsList.map(VALUE => VALUE.addedNodes);
-        nodes = nodes.flat();
-        console.log(JSON.stringify(nodes));
-        for (let NODE of nodes) {
-            if (NODE.localName == "iframe") {
-                this._tryDeleteNode(NODE);
-            } else if (NODE.className == "orp-player-wrapper") {
-                this._tryDeleteNode(NODE);
-            }
-        }
+
+
+
+
+        // debugger;
+        // let nodes = mutationsList.map(VALUE => VALUE.addedNodes);
+        // nodes = nodes.flat();
+        // console.log(JSON.stringify(nodes));
+        // for (let NODE of nodes) {
+        //     if (NODE.localName == "iframe") {
+        //         this._tryDeleteNode(NODE);
+        //     } else if (NODE.className == "orp-player-wrapper") {
+        //         this._tryDeleteNode(NODE);
+        //     }
+        // }
     }
 
     constructor() {
