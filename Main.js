@@ -73,6 +73,8 @@ class Main {
     }
 
     _observe = (mutationsList) => {
+        let nodes = mutationsList.map(VALUE => VALUE.addedNodes);
+        nodes = nodes.flat();
         debugger;
     }
 
