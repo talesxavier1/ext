@@ -74,37 +74,10 @@ class Main {
         } catch (err) { console.log("err") }
     }
 
-    _observe = () => {
-        this._clearOnLoadComponents();
-
-        // let nodes = (() => {
-        //     let Partialresult = [];
-        //     for (let MUTATION of mutationsList) {
-        //         for (let ADDED_NODES of MUTATION.addedNodes) {
-        //             Partialresult.push(ADDED_NODES);
-        //         }
-        //     }
-        //     return Partialresult;
-        // })();
-
-        // for (let NODE of nodes) {
-        //     let removeNode =
-        //         (NODE.localName == "iframe") ||
-        //         (NODE.className == "orp-player-wrapper") ||
-        //         (NODE.id == "fs-sticky-footer");
-
-        //     if (removeNode) {
-        //         this._tryDeleteNode(NODE);
-        //     }
-
-        // }
-    }
-
     constructor() {
         this._clearOnLoadComponents();
-        new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
+        new MutationObserver(() => { this._clearOnLoadComponents(); }).observe(document.documentElement, { childList: true, subtree: true });
     }
-
 }
 
 new Main();
