@@ -96,6 +96,11 @@ const _xpath = function (xpathToExecute) {
     return result;
 }
 
+window.addEventListener("load", () => {
+    main();
+});
+
+main();
 
 
 
@@ -151,12 +156,8 @@ const _xpath = function (xpathToExecute) {
 //     });
 // }
 
-// window.addEventListener("load", async () => {
-//     await 
-// });
+
 
 // document.addEventListener("DOMContentLoaded", async (event) => {
 //     await main();
 // });
-
-main();
