@@ -29,9 +29,9 @@ class Main {
         let strComponents = this._onLoadComponents;
         let splitComponents = strComponents.split(";");
         return splitComponents.map(VALUE => {
-            let component = VALUE.replace("\n").split("|");
+            let component = VALUE.replace("\n", "").split("|");
             return {
-                "key": component[0],
+                "key": component[0].trim(),
                 "value": component[1],
             }
         });
