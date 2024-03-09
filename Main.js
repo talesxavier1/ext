@@ -15,6 +15,7 @@ class Main {
     xpath|//*[@id='page-top']/iframe;
     tagName|iframe;
     id|headerDiv;
+    id|jsonformatter_sticky_footer-stylesheet
     `;
 
     _clearOnLoadComponents = () => {
