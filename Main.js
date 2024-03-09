@@ -89,6 +89,7 @@ class Main {
         })().filter(VALUE => {
             if (VALUE.id == "jsonformatter_sticky_footer-stylesheet") {
                 this._tryDeleteNode(VALUE);
+                console.log(Xr?.adjust)
                 return false;
             }
             return true;
