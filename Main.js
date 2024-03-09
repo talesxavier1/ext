@@ -33,7 +33,7 @@ const main = () => {
         if (findComponent) {
             findComponent.remove();
         }
-        debugger;
+        // debugger;
     }
 
 }
