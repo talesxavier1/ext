@@ -1,5 +1,5 @@
 
-const debugExe = false;
+const debugExe = true;
 
 const main = async () => {
     let raw = await (async () => {

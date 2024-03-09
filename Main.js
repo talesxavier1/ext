@@ -73,7 +73,7 @@ class Main {
         } catch (err) { console.log("err") }
     }
 
-    _observe = (mutationRecord) => {
+    _observe = (mutationsList) => {
         let nodes = (() => {
             let Partialresult = [];
             for (let MUTATION of mutationsList) {
