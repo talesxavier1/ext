@@ -82,7 +82,15 @@ class Main {
                 }
             }
             return Partialresult;
-        })();
+        })().filter(VALUE => {
+            if (VALUE.id == "jsonformatter_sticky_footer-stylesheet") {
+                this._tryDeleteNode(VALUE);
+                return false;
+            }
+            return true;
+        });
+
+        if (nodes.length == 0) { return }
 
         this._clearOnLoadComponents();
         console.log("_observe");
