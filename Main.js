@@ -73,17 +73,8 @@ const main_componentsObserve = () => {
                 }
             }
         }
-    }).observe(document.getElementById("page-top"), { childList: true });
+    }).observe(document.getElementById("page-top"), { childList: true, subtree: true });
 
-    new MutationObserver((mutationsList, observer) => {
-        for (let MUTATION of mutationsList) {
-            for (let ADDED_NODES of MUTATION.addedNodes) {
-                if (ADDED_NODES.localName == "iframe") {
-                    ADDED_NODES.remove();
-                }
-            }
-        }
-    }).observe(_xpath(), { childList: true, subtree: true });
 }
 
 const _getFirstElements = (By, Value) => {
