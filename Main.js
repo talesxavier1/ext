@@ -80,12 +80,14 @@ const main_componentsObserve = () => {
 }
 
 const _getFirstElements = (By, Value) => {
-    if (["id", "name", "className"].includes(By)) {
+    if (["id", "name", "className", "tagName"].includes(By)) {
         let result;
         if (By == "id") {
             result = [document.getElementById(Value)];
         } else if (By == "name") {
             result = document.getElementsByName(Value);
+        } else if (By == "tagName") {
+            result = document.getElementsByTagName(Value);
         } else {
             result = document.getElementsByClassName(Value);
         }
