@@ -74,28 +74,30 @@ class Main {
         } catch (err) { console.log("err") }
     }
 
-    _observe = (mutationsList) => {
-        let nodes = (() => {
-            let Partialresult = [];
-            for (let MUTATION of mutationsList) {
-                for (let ADDED_NODES of MUTATION.addedNodes) {
-                    Partialresult.push(ADDED_NODES);
-                }
-            }
-            return Partialresult;
-        })();
+    _observe = () => {
+        this._clearOnLoadComponents();
 
-        for (let NODE of nodes) {
-            let removeNode =
-                (NODE.localName == "iframe") ||
-                (NODE.className == "orp-player-wrapper") ||
-                (NODE.id == "fs-sticky-footer");
+        // let nodes = (() => {
+        //     let Partialresult = [];
+        //     for (let MUTATION of mutationsList) {
+        //         for (let ADDED_NODES of MUTATION.addedNodes) {
+        //             Partialresult.push(ADDED_NODES);
+        //         }
+        //     }
+        //     return Partialresult;
+        // })();
 
-            if (removeNode) {
-                this._tryDeleteNode(NODE);
-            }
+        // for (let NODE of nodes) {
+        //     let removeNode =
+        //         (NODE.localName == "iframe") ||
+        //         (NODE.className == "orp-player-wrapper") ||
+        //         (NODE.id == "fs-sticky-footer");
 
-        }
+        //     if (removeNode) {
+        //         this._tryDeleteNode(NODE);
+        //     }
+
+        // }
     }
 
     constructor() {
