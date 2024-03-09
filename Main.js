@@ -71,7 +71,7 @@ const main_componentsObserve = () => {
         }
 
         debugger;
-    }).observe(document.getElementById("page-top"), { childList: true });
+    }).observe(document.getElementById("page-top"), {});
 }
 
 const _getFirstElements = (By, Value) => {
