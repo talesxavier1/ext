@@ -22,7 +22,7 @@ const getFirstElement = (By, Value) => {
     if (["id", "name", "className"].includes(By)) {
         let result;
         if (By == "id") {
-            result = document.getElementById(Value);
+            result = [document.getElementById(Value)];
         } else if (By == "name") {
             result = document.getElementsByName(Value);
         } else {
