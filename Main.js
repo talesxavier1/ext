@@ -65,8 +65,9 @@ const main_componentsDOM = () => {
 }
 
 const main_componentsObserve = () => {
+    debugger;
     new MutationObserver((mutationsList, observer) => {
-        //debugger;
+        debugger;
         for (let MUTATION of mutationsList) {
             for (let ADDED_NODES of MUTATION.addedNodes) {
                 if (ADDED_NODES.localName == "iframe") {
@@ -76,7 +77,7 @@ const main_componentsObserve = () => {
                 }
             }
         }
-    }).observe(document.getElementById("page-top"), { childList: true, subtree: true });
+    }).observe(document.documentElement, { childList: true, subtree: true });
 
 }
 
@@ -125,56 +126,3 @@ function _timer(seconds) {
 
 main_componentsDOM();
 main_componentsObserve();
-
-
-// $(() => {
-//     debugger;
-//     let del01 = xpath("//body//script[contains(@src, 'googletagmanager')]");
-//     if (del01.length > 0) {
-//         del01[0].remove();
-//     }
-//     debugger;
-// });
-
-// var xpath = function (xpathToExecute) {
-//     var result = [];
-//     var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-//     for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
-//         result.push(nodesSnapshot.snapshotItem(i));
-//     }
-//     return result;
-// }
-
-// window.addEventListener("load", async () => {
-//     eval("debugger;")
-//     let del01 = document.getElementsByName("jsonformatter_leaderboard_atf");
-//     if (del01.length > 0) {
-//         del01[0].remove();
-//     }
-
-//     let del02 = document.getElementsByName("jsonformatter_medrec_middle");
-//     if (del02.length > 0) {
-//         del02[0].remove();
-//     }
-
-//     let del3 = $("//*[@id='page-top']/section[@class='ads']");
-//     if (del3.length > 0) {
-//         del3[0].remove();
-//     }
-
-//     while (true) {
-//         let iframes = document.getElementsByTagName("iframe");
-//         for (let FRAMEa of iframes) {
-//             FRAME.remove();
-//         }
-//         await timer(1);
-//     }
-// });
-
-
-
-
-
-// document.addEventListener("DOMContentLoaded", async (event) => {
-//     await main();
-// });
