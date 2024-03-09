@@ -66,10 +66,12 @@ const main_componentsDOM = () => {
 
 const main_componentsObserve = () => {
     new MutationObserver((mutationsList, observer) => {
-        debugger;
+        //debugger;
         for (let MUTATION of mutationsList) {
             for (let ADDED_NODES of MUTATION.addedNodes) {
                 if (ADDED_NODES.localName == "iframe") {
+                    ADDED_NODES.remove();
+                } else if (ADDED_NODES.className == "orp-player-wrapper") {
                     ADDED_NODES.remove();
                 }
             }
