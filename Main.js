@@ -66,7 +66,7 @@ const main_componentsObserve = () => {
                 if (ADDED_NODES.localName == "iframe") {
                     ADDED_NODES.remove();
                 }
-                debugger
+                //debugger
             }
         }
 
