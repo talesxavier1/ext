@@ -62,7 +62,7 @@ const main_componentsObserve = () => {
     new MutationObserver((mutationsList, observer) => {
 
         for (let MUTATION of mutationsList) {
-            for (let NODES of MUTATION.addedNodes) {
+            for (let ADDED_NODES of MUTATION.addedNodes) {
                 debugger
             }
         }
