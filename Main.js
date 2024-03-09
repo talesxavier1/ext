@@ -55,6 +55,7 @@ const main_componentsDOM = () => {
             "key": "xpath",
             "value": "//iframe"
         },
+
     ];
 
     for (let COMPONENT of components) {
