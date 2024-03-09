@@ -104,16 +104,18 @@ class Main {
         console.log("_observe");
     }
 
+    _originalSetTimeout;
+    _bypassSetTimeout = (callback, delay, ...args) => {
+        const id = originalSetTimeout(callback, delay, ...args);
+        debugger;
+        return id;
+    }
+
     constructor() {
         this._clearOnLoadComponents();
         new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
-
-        const originalSetTimeout = window.setTimeout;
-        window.setTimeout = function (callback, delay, ...args) {
-            const id = originalSetTimeout(callback, delay, ...args);
-            debugger;
-            return id;
-        };
+        this._originalSetTimeout = window.setTimeout;
+        window.setTimeout = this._bypassSetTimeout;
     }
 }
 
