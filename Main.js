@@ -19,6 +19,7 @@ class Main {
     xpath|//html/head/script[contains(@src, 'pubfig.engine.js')];
     xpath|//html/head/script[contains(@src, 'pubfig.min.js')];
     xpath|//html/head/script[contains(@src, 'a.pub.network')];
+    xpath|//html/head/link[contains(@href, 'a.pub.network')];
     xpath|html/iframe
     `;
     _clearOnLoadComponents = () => {
