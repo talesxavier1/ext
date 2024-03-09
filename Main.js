@@ -50,23 +50,15 @@ const main = () => {
         //
     ]
 
-
     for (let COMPONENT of components) {
-        let findComponent = getFirstElement(COMPONENT.key, COMPONENT.value);
-        if (findComponent) {
-            findComponent.remove();
-        }
+        let findComponent = getFirstElements(COMPONENT.key, COMPONENT.value);
+        findComponent.forEach(VALUE => VALUE.remove());
         // debugger;
     }
 
 }
 
-/**
- * @param {"xpath"|"id"|"name"|"className"} By Tipo de busca.
- * @param {string} Value Valor da busca.
- * @returns {object | null} Resultado da busca. 
- */
-const getFirstElement = (By, Value) => {
+const getFirstElements = (By, Value) => {
     if (["id", "name", "className"].includes(By)) {
         let result;
         if (By == "id") {
@@ -77,26 +69,17 @@ const getFirstElement = (By, Value) => {
             result = document.getElementsByClassName(Value);
         }
 
-        if (!Array.isArray(result) && !(result.length > 0)) { return null; }
-        return result[0];
+        if (!Array.isArray(result)) { return []; }
+        return result;
     }
 
     if (By == "xpath") {
         let result = _xpath(Value);
-        if (!Array.isArray(result) && !(result.length > 0)) { return null; }
-        return result[0];
+        if (!Array.isArray(result)) { return []; }
+        return result;
     }
 
-    return null;
-}
-
-/**
- * @param {"xpath"|"id"|"name"|"className"} By Tipo de busca.
- * @param {string} Value Valor da busca.
- * @returns {Object[] | null} Resultado da busca. 
- */
-const getAllElement = (By, Value) => {
-
+    return [];
 }
 
 const _xpath = function (xpathToExecute) {
