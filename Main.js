@@ -52,8 +52,8 @@ const main_componentsDOM = () => {
         },
         {
             "desc": "Iframes",
-            "key": "tagName",
-            "value": "iframe"
+            "key": "xpath",
+            "value": "//*[@id='page-top']/iframe"
         },
 
     ];
