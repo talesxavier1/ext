@@ -1,5 +1,3 @@
-
-
 class Main {
 
     _onLoadComponents = `
