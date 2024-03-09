@@ -1,5 +1,5 @@
 
-const debugExe = true;
+const debugExe = false;
 
 const main = async () => {
     let raw = await (async () => {
@@ -38,7 +38,7 @@ const getGitHubPage = async () => {
 const getGitHubRaw = async () => {
     let raw = "(()=>{})()";
     await $.ajax({
-        url: "https://raw.githubusercontent.com/talesxavier1/ext/dev/Main.js",
+        url: "https://raw.githubusercontent.com/talesxavier1/ext/v1.1/Main.js",
         type: "GET",
         success: function (response) {
             raw = response;
