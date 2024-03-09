@@ -54,7 +54,7 @@ class Main {
                 break;
             case "xpath":
                 let Partialresult = [];
-                let nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+                let nodesSnapshot = document.evaluate(Value, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
                 for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
                     Partialresult.push(nodesSnapshot.snapshotItem(i));
                 }
