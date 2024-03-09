@@ -1,5 +1,4 @@
 const main = () => {
-    debugger;
     let components = [
         {
             "desc": " AD Header",
