@@ -27,7 +27,7 @@ const getScript = async () => {
     });
     return _response
 }
-main_componentsDOM();
+main();
 
 
 

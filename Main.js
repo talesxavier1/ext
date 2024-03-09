@@ -50,9 +50,6 @@ const main_componentsDOM = () => {
             "key": "xpath",
             "value": "//div[contains(@class, 'orp-player-wrapper')]"
         },
-
-
-        //
     ];
 
     for (let COMPONENT of components) {
@@ -61,9 +58,10 @@ const main_componentsDOM = () => {
     }
 }
 
-
 const main_componentsObserve = () => {
-
+    new MutationObserver((mutationsList, observer) => {
+        debugger;
+    }).observe(document.getElementById("page-top"), { childList: true });
 }
 
 const _getFirstElements = (By, Value) => {
@@ -108,7 +106,7 @@ function _timer(seconds) {
 }
 
 main_componentsDOM();
-
+main_componentsObserve();
 
 
 // $(() => {
