@@ -15,6 +15,7 @@ class Main {
     id|fs-sticky-footer;
     xpath|//div[contains(@class, 'orp-player-wrapper')];
     xpath|//*[@id='page-top']/iframe;
+    tagName|iframe;
     `;
 
     _clearOnLoadComponents = () => {
@@ -73,9 +74,16 @@ class Main {
     }
 
     _observe = (mutationsList) => {
+        debugger;
         let nodes = mutationsList.map(VALUE => VALUE.addedNodes);
         nodes = nodes.flat();
-        debugger;
+        for (let NODE of nodes) {
+            if (NODE.localName == "iframe") {
+                this._tryDeleteNode(NODE);
+            } else if (NODE.className == "orp-player-wrapper") {
+                this._tryDeleteNode(NODE);
+            }
+        }
     }
 
     constructor() {
