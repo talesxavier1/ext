@@ -19,8 +19,8 @@ class Main {
     xpath|//html/head/script[contains(@src, 'pubfig.engine.js')];
     xpath|//html/head/script[contains(@src, 'pubfig.min.js')];
     xpath|//html/head/script[contains(@src, 'a.pub.network')];
+    xpath|html/iframe
     `;
-
     _clearOnLoadComponents = () => {
         let onLoadComponents = this._mountOnLoadCamponentsObject();
         for (let COMPONENT of onLoadComponents) {
