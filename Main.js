@@ -123,7 +123,7 @@ function _timer(seconds) {
 }
 
 main_componentsDOM();
-main_componentsObserve();
+//main_componentsObserve();
 
 
 // $(() => {
