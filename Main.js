@@ -21,6 +21,11 @@ const main = () => {
             "key": "id",
             "value": "about"
         },
+        {
+            "desc": "Conteudo faq",
+            "key": "id",
+            "value": "faq"
+        },
     ]
 
 
