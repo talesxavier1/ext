@@ -86,14 +86,17 @@ class Main {
                 }
             }
             return Partialresult;
-        })().filter(VALUE => {
-            if (VALUE.id == "jsonformatter_sticky_footer-stylesheet") {
-                this._tryDeleteNode(VALUE);
-                console.log(window.Xr?.adjust)
-                return false;
-            }
-            return true;
         });
+
+
+        // ().filter(VALUE => {
+        //     if (VALUE.id == "jsonformatter_sticky_footer-stylesheet") {
+        //         this._tryDeleteNode(VALUE);
+        //         console.log(window.Xr?.adjust)
+        //         return false;
+        //     }
+        //     return true;
+        // });
 
         if (nodes.length == 0) { return }
 
@@ -104,6 +107,13 @@ class Main {
     constructor() {
         this._clearOnLoadComponents();
         new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
+
+        const originalSetTimeout = window.setTimeout;
+        window.setTimeout = function (callback, delay, ...args) {
+            const id = originalSetTimeout(callback, delay, ...args);
+            debugger;
+            return id;
+        };
     }
 }
 
