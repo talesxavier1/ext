@@ -2,12 +2,84 @@
 
 class Main {
 
+    _onLoadComponents = `
+    id|jsonformatter_leaderboard_atf;
+    id|jsonformatter_medrec_middle;
+    xpath|//*[@id='page-top']/section[@class = 'ads'];
+    id|about;
+    id|faq;
+    id|jsonformatter_incontent_3;
+    id|jsonformatter_Leaderboard_btf;
+    id|esg_atica;
+    id|jsonformatter_incontent_4;
+    id|fs-sticky-footer;
+    xpath|//div[contains(@class, 'orp-player-wrapper')];
+    xpath|//*[@id='page-top']/iframe;
+    `;
+
+    _clearOnLoadComponents = () => {
+        let onLoadComponents = this._mountOnLoadCamponentsObject();
+        for (let COMPONENT of onLoadComponents) {
+            let findNodes = this._getFirstElements(COMPONENT.key, COMPONENT.value);
+            findNodes.forEach((VALUE) => this._tryDeleteNode(VALUE));
+        }
+    }
+
+    _mountOnLoadCamponentsObject = () => {
+        let strComponents = this._onLoadComponents;
+        let splitComponents = strComponents.split(";");
+        return splitComponents.map(VALUE => {
+            let component = VALUE.replace("\n").split("|");
+            return {
+                "key": component[0],
+                "value": component[1],
+            }
+        });
+    }
+
+    _getFirstElements = (By, Value) => {
+        let result;
+        switch (By) {
+            case "id":
+                result = [document.getElementById(Value)];
+                break;
+            case "name":
+                result = document.getElementsByName(Value);
+                break;
+            case "className":
+                result = document.getElementsByClassName(Value);
+                break;
+            case "tagName":
+                result = document.getElementsByTagName(Value);
+                break;
+            case "xpath":
+                let Partialresult = [];
+                let nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+                for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
+                    Partialresult.push(nodesSnapshot.snapshotItem(i));
+                }
+                result = Partialresult;
+                break;
+        }
+
+        if (!Array.isArray(result)) { return []; }
+        return result;
+    }
+
+    _tryDeleteNode = (node) => {
+        try {
+            node.remove();
+        } catch (err) { }
+    }
+
     _observe = (mutationsList) => {
         debugger;
     }
 
     constructor() {
-        new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
+        debugger;
+        this._clearOnLoadComponents();
+        //new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
     }
 
 }
@@ -21,68 +93,6 @@ new Main();
 
 /*
 const main_componentsDOM = () => {
-    let components = [
-        {
-            "desc": " AD",
-            "key": "id",
-            "value": "jsonformatter_leaderboard_atf"
-        },
-        {
-            "desc": " AD",
-            "key": "id",
-            "value": "jsonformatter_medrec_middle"
-        },
-        {
-            "desc": "AD",
-            "key": "xpath",
-            "value": "//*[@id='page-top']/section[@class = 'ads']"
-        },
-        {
-            "desc": "Conteudo sobre",
-            "key": "id",
-            "value": "about"
-        },
-        {
-            "desc": "Conteudo faq",
-            "key": "id",
-            "value": "faq"
-        },
-        {
-            "desc": " AD",
-            "key": "id",
-            "value": "jsonformatter_incontent_3"
-        },
-        {
-            "desc": " AD",
-            "key": "id",
-            "value": "jsonformatter_Leaderboard_btf"
-        },
-        {
-            "desc": " AD",
-            "key": "id",
-            "value": "jsonformatter_incontent_4"
-        },
-        {
-            "desc": " AD",
-            "key": "id",
-            "value": "esg_atica"
-        },
-        {
-            "desc": " AD",
-            "key": "id",
-            "value": "fs-sticky-footer"
-        },
-        {
-            "desc": " AD",
-            "key": "xpath",
-            "value": "//div[contains(@class, 'orp-player-wrapper')]"
-        },
-        {
-            "desc": "Iframes",
-            "key": "xpath",
-            "value": "//*[@id='page-top']/iframe"
-        }
-    ];
 
     for (let COMPONENT of components) {
         let findComponent = _getFirstElements(COMPONENT.key, COMPONENT.value);
