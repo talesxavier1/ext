@@ -106,7 +106,7 @@ class Main {
 
     _originalSetTimeout;
     _bypassSetTimeout = (callback, delay, ...args) => {
-        const id = originalSetTimeout(callback, delay, ...args);
+        const id = this._originalSetTimeout(callback, delay, ...args);
         debugger;
         return id;
     }
