@@ -51,7 +51,8 @@ const getFirstElement = (By, Value) => {
 
     if (By == "xpath") {
         let result = _xpath(Value);
-        debugger;
+        if (!Array.isArray(result) && !(result.length > 0)) { return null; }
+        return result[0];
     }
 
     return null;
