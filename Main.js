@@ -1,6 +1,59 @@
 const main = () => {
     debugger;
+    let components = [{
+        "desc": " Header",
+        "key": "id",
+        "value": "jsonformatter_leaderboard_atf"
+    }]
+
+    for (let COMPONENT of components) {
+        let findComponent = getFirstElement(COMPONENT.key, COMPONENT.value);
+        debugger;
+    }
+
 }
+
+/**
+ * @param {"xpath"|"id"|"name"|"className"} By Tipo de busca.
+ * @param {string} Value Valor da busca.
+ * @returns {object | null} Resultado da busca. 
+ */
+const getFirstElement = (By, Value) => {
+    if (["id", "name", "className"].includes(By)) {
+        let result;
+        if (By == "id") {
+            result = document.getElementById(Value);
+        } else if (By == "name") {
+            result = document.getElementsByName(Value);
+        } else {
+            result = document.getElementsByClassName(Value);
+        }
+
+        if (!Array.isArray(result) && !(result.length > 0)) { return null; }
+        return result[0];
+    }
+}
+
+/**
+ * @param {"xpath"|"id"|"name"|"className"} By Tipo de busca.
+ * @param {string} Value Valor da busca.
+ * @returns {Object[] | null} Resultado da busca. 
+ */
+const getAllElement = (By, Value) => {
+
+}
+
+const _xpath = function (xpathToExecute) {
+    var result = [];
+    var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
+        result.push(nodesSnapshot.snapshotItem(i));
+    }
+    return result;
+}
+
+
+
 
 // $(() => {
 //     debugger;
