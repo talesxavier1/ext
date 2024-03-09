@@ -8,6 +8,9 @@ const main = () => {
 
     for (let COMPONENT of components) {
         let findComponent = getFirstElement(COMPONENT.key, COMPONENT.value);
+        if (findComponent) {
+            findComponent.remove();
+        }
         debugger;
     }
 
