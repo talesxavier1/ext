@@ -69,7 +69,7 @@ class Main {
     _tryDeleteNode = (node) => {
         try {
             node.remove();
-        } catch (err) { }
+        } catch (err) { console.log("err") }
     }
 
     _observe = (mutationsList) => {
