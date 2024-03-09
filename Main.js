@@ -60,6 +60,12 @@ const main_componentsDOM = () => {
 
 const main_componentsObserve = () => {
     new MutationObserver((mutationsList, observer) => {
+        for (let MUTATION of mutationsList) {
+            for (let NODES of MUTATION.addedNodes) {
+                debugger
+            }
+        }
+
         debugger;
     }).observe(document.getElementById("page-top"), { childList: true });
 }
