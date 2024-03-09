@@ -77,6 +77,7 @@ class Main {
         debugger;
         let nodes = mutationsList.map(VALUE => VALUE.addedNodes);
         nodes = nodes.flat();
+        console.log(JSON.stringify(nodes));
         for (let NODE of nodes) {
             if (NODE.localName == "iframe") {
                 this._tryDeleteNode(NODE);
