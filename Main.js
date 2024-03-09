@@ -16,6 +16,11 @@ const main = () => {
             "key": "xpath",
             "value": "//*[@id='page-top']/section[@class = 'ads']"
         },
+        {
+            "desc": "Conteudo sobre",
+            "key": "id",
+            "value": "about"
+        },
     ]
 
 
