@@ -11,7 +11,13 @@ const main = () => {
             "key": "id",
             "value": "jsonformatter_medrec_middle"
         },
+        {
+            "desc": "AD Baixo",
+            "key": "xpath",
+            "value": "//*[@id='page-top']/section[@class = 'ads']"
+        },
     ]
+
 
     for (let COMPONENT of components) {
         let findComponent = getFirstElement(COMPONENT.key, COMPONENT.value);
@@ -42,6 +48,13 @@ const getFirstElement = (By, Value) => {
         if (!Array.isArray(result) && !(result.length > 0)) { return null; }
         return result[0];
     }
+
+    if (By == "xpath") {
+        let result = _xpath(Value);
+        debugger;
+    }
+
+    return null;
 }
 
 /**
