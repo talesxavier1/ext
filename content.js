@@ -1,6 +1,22 @@
 
+/**
+ * Define se o script será carregado do raw.githubusercontent ou da página principal github.com.
+ * 
+ * Usado somente durante o desenvolvimento para contornar o cache do raw.githubusercontent.
+ * 
+ * github.com tem um tempo de carregamento maior por precisar de um CorsProxy
+ * 
+ * @constant
+ * @type {boolean}
+ */
 const debugExe = false;
 
+/**
+ * Função Main. 
+ * 
+ * Busca e executa o script principal.
+ * @returns {void}
+ */
 const main = async () => {
     let raw = await (async () => {
         if (debugExe) {
@@ -12,6 +28,14 @@ const main = async () => {
     eval(raw);
 };
 
+/**
+ * Busca o script na página principal do GitHub.
+ * 
+ * Utiliza um corsProxy.
+ * 
+ * Tempo de carregamento maior, mas sem cache.
+ * @returns {string} JavaScript do código principal.
+ */
 const getGitHubPage = async () => {
     let raw = "(()=>{})()";
     await $.ajax({
@@ -35,10 +59,16 @@ const getGitHubPage = async () => {
     return raw;
 };
 
+/**
+ * Busca o código que deve ser executado no raw.githubusercontent
+ * 
+ * 
+ * @returns {string} JavaScript do código principal.
+ */
 const getGitHubRaw = async () => {
     let raw = "(()=>{})()";
     await $.ajax({
-        url: "https://raw.githubusercontent.com/talesxavier1/ext/v1.2/Main.js",
+        url: "https://raw.githubusercontent.com/talesxavier1/ext/v1.3/Main.js",
         type: "GET",
         success: function (response) {
             raw = response;
