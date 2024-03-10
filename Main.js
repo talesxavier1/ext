@@ -91,7 +91,6 @@ class Main {
         if (nodes.length == 0) { return }
 
         this._clearOnLoadComponents();
-        console.log("_observe");
     }
 
     constructor() {

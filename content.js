@@ -38,7 +38,7 @@ const getGitHubPage = async () => {
 const getGitHubRaw = async () => {
     let raw = "(()=>{})()";
     await $.ajax({
-        url: "https://raw.githubusercontent.com/talesxavier1/ext/v1.1/Main.js",
+        url: "https://raw.githubusercontent.com/talesxavier1/ext/v1.2/Main.js",
         type: "GET",
         success: function (response) {
             raw = response;
