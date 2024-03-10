@@ -1,5 +1,11 @@
 class Main {
 
+    /**
+     * Componentes que devem ser deletados no DOM.
+     * {key:string}|{value:string}
+     * @type {string}
+     * @private
+     */
     _onLoadComponents = `
     id|jsonformatter_leaderboard_atf;
     id|jsonformatter_medrec_middle;
@@ -22,14 +28,29 @@ class Main {
     xpath|//html/head/link[contains(@href, 'a.pub.network')];
     xpath|html/iframe
     `;
+
+    /**
+     * Executa a limpeza dos campos no DOM.
+     * @private
+     * @returns {void}
+     * @private
+     */
     _clearOnLoadComponents = () => {
         let onLoadComponents = this._mountOnLoadCamponentsObject();
         for (let COMPONENT of onLoadComponents) {
-            let findNodes = this._getFirstElements(COMPONENT.key, COMPONENT.value);
+            let findNodes = this._getElements(COMPONENT.key, COMPONENT.value);
             findNodes.forEach((VALUE) => this._tryDeleteNode(VALUE));
         }
     }
 
+    /**
+     * Monta um objeto na estrutura 'BaseComponentInfo'.
+     * @typedef {Object} BaseComponentInfo
+     * @property {"id"|"name"|"className"|"tagName"|"xpath"} key Tipo de campo.
+     * @property {string} value - valor do campo.
+     * @returns {BaseComponentInfo}
+     * @private
+     */
     _mountOnLoadCamponentsObject = () => {
         let strComponents = this._onLoadComponents;
         let splitComponents = strComponents.split(";");
@@ -42,7 +63,14 @@ class Main {
         });
     }
 
-    _getFirstElements = (By, Value) => {
+    /**
+     * Busca um ou mais elementos no DOM usando o capo passado em By e o valor passado em Value.
+     * @param {"id"|"name"|"className"|"tagName"|"xpath"} By 
+     * @param {string} Value 
+     * @returns {Node[]}
+     * @private
+     */
+    _getElements = (By, Value) => {
         let result;
         switch (By) {
             case "id":
@@ -71,12 +99,24 @@ class Main {
         return result;
     }
 
+    /**
+     * Tenta remover o node passado do DOM.
+     * @param {Node} node 
+     * @returns {void}
+     * @private
+     */
     _tryDeleteNode = (node) => {
         try {
             node.remove();
         } catch (err) { }
     }
 
+    /**
+     * Função Callback do MutationObserver. Observa os novos eventos do HTML.
+     * @param {MutationRecord[]} mutationsList 
+     * @returns {void}
+     * @private
+     */
     _observe = (mutationsList) => {
         let nodes = (() => {
             let Partialresult = [];
@@ -93,6 +133,13 @@ class Main {
         this._clearOnLoadComponents();
     }
 
+    /**
+     * Construtor da classe Main.
+     * 
+     * Executa o _clearOnLoadComponents, inicia o MutationObserver e monitora o window.setTimeout para bloquear agendamentos do a.pub.
+     * @constructor
+     * 
+     */
     constructor() {
         this._clearOnLoadComponents();
         new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
