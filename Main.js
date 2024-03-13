@@ -20,7 +20,6 @@ class Main {
     xpath|//div[contains(@class, 'orp-player-wrapper')];
     xpath|//*[@id='page-top']/iframe;
     tagName|iframe;
-    id|headerDiv;
     id|jsonformatter_sticky_footer-stylesheet;
     xpath|//html/head/script[contains(@src, 'pubfig.engine.js')];
     xpath|//html/head/script[contains(@src, 'pubfig.min.js')];
