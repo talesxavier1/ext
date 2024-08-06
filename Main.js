@@ -152,7 +152,6 @@ class Main {
         }
 
         document.addEventListener('visibilitychange', function () {
-            debugger;
             self._clearOnLoadComponents();
         });
     }
