@@ -148,6 +148,14 @@ class Main {
             if (callback.toString().includes("Xr.adjust")) { return null }
             return originalSetTimeout(callback, delay, ...args);
         }
+
+        document.addEventListener('visibilitychange', function () {
+            if (document.visibilityState === 'hidden') {
+                console.log('Usuário trocou de aba ou minimizou a janela');
+            } else if (document.visibilityState === 'visible') {
+                console.log('Usuário voltou para a aba');
+            }
+        });
     }
 }
 
