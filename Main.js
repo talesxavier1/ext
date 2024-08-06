@@ -141,8 +141,9 @@ class Main {
      * 
      */
     constructor() {
-        this._clearOnLoadComponents();
-        new MutationObserver(this._observe).observe(document.documentElement, { childList: true, subtree: true });
+        const self = this;
+        self._clearOnLoadComponents();
+        new MutationObserver(self._observe).observe(document.documentElement, { childList: true, subtree: true });
 
         const originalSetTimeout = window.setTimeout;
         window.setTimeout = (callback, delay, ...args) => {
@@ -151,8 +152,8 @@ class Main {
         }
 
         document.addEventListener('visibilitychange', function () {
-            debugger
-            this._clearOnLoadComponents();
+            debugger;
+            self._clearOnLoadComponents();
         });
     }
 }
