@@ -156,6 +156,7 @@ class Main {
                 console.log('Usuário voltou para a aba');
             }
         });
+        debugExe
     }
 }
 
