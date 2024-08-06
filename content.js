@@ -9,7 +9,7 @@
  * @constant
  * @type {boolean}
  */
-const debugExe = false;
+const debugExe = true;
 
 /**
  * Função Main. 
