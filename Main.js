@@ -20,6 +20,7 @@ class Main {
     xpath|//div[contains(@class, 'orp-player-wrapper')];
     xpath|//*[@id='page-top']/iframe;
     tagName|iframe;
+    tagName|ins;
     id|jsonformatter_sticky_footer-stylesheet;
     xpath|//html/head/script[contains(@src, 'pubfig.engine.js')];
     xpath|//html/head/script[contains(@src, 'pubfig.min.js')];
@@ -150,13 +151,8 @@ class Main {
         }
 
         document.addEventListener('visibilitychange', function () {
-            if (document.visibilityState === 'hidden') {
-                console.log('Usuário trocou de aba ou minimizou a janela');
-            } else if (document.visibilityState === 'visible') {
-                console.log('Usuário voltou para a aba');
-            }
+            this._clearOnLoadComponents();
         });
-        debugExe
     }
 }
 
