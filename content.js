@@ -1,4 +1,3 @@
-
 /**
  * Define se o script será carregado do raw.githubusercontent ou da página principal github.com.
  * 
@@ -68,7 +67,7 @@ const getGitHubPage = async () => {
 const getGitHubRaw = async () => {
     let raw = "(()=>{})()";
     await $.ajax({
-        url: "https://raw.githubusercontent.com/talesxavier1/ext/v1.5/Main.js",
+        url: "https://raw.githubusercontent.com/talesxavier1/ext/v1.7/Main.js",
         type: "GET",
         success: function (response) {
             raw = response;
